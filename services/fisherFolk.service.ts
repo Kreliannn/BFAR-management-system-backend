@@ -1,37 +1,25 @@
-import ActivityDB from '../model/activity.model';
-import { insertActivityInterface, getActivityInterface } from '../types/activity.types';
+import FisherFolkDB from '../model/fisherFolk.model';
+import { insertFisherfolkInterface, getFisherfolkInterface } from '../types/fisherFolk.type';
 
-export class Activity {
- 
-  static async create(data: insertActivityInterface) {
-    const activity = new ActivityDB(data);
-    return await activity.save();
+export class FisherFolk {
+  static async create(data: insertFisherfolkInterface) {
+    const fisherFolk = new FisherFolkDB(data);
+    return await fisherFolk.save();
   }
 
-  
   static async getAll() {
-    return await ActivityDB.find()
-      .populate('fisherfolk')
-      .populate('boats')
-      .exec();
+    return await FisherFolkDB.find().exec();
   }
 
- 
   static async getById(id: string) {
-    return await ActivityDB.findById(id)
-      .populate('fisherfolk')
-      .populate('boats')
-      .exec();
+    return await FisherFolkDB.findById(id).exec();
   }
 
- 
-  static async update(id: string, data: getActivityInterface) {
-    return await ActivityDB.findByIdAndUpdate(id, data, { new: true });
+  static async update(id: string, data: getFisherfolkInterface) {
+    return await FisherFolkDB.findByIdAndUpdate(id, data, { new: true });
   }
 
- 
   static async delete(id: string) {
-    return await ActivityDB.findByIdAndDelete(id);
+    return await FisherFolkDB.findByIdAndDelete(id);
   }
 }
-
