@@ -8,11 +8,17 @@ export class FisherFolk {
   }
 
   static async getAll() {
-    return await FisherFolkDB.find().exec();
+    return await FisherFolkDB.find()
+    .populate("gears")
+    .populate("boats")
+    .exec();
   }
 
   static async getById(id: string) {
-    return await FisherFolkDB.findById(id).exec();
+    return await FisherFolkDB.findById(id)
+    .populate("gears")
+    .populate("boats")
+    .exec();
   }
 
   static async update(id: string, data: getFisherfolkInterface) {
@@ -36,5 +42,12 @@ export class FisherFolk {
 
   static async insertBoat(id: string, boatId: string) {
     return await FisherFolkDB.findByIdAndUpdate(id,   { $push: { boats: boatId } }, { new: true });
+  }
+
+  static async login(email : string, password : string) {
+    return await FisherFolkDB.findOne({ email , password})
+    .populate("gears")
+    .populate("boats")
+    .exec();
   }
 }

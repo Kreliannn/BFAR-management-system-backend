@@ -8,5 +8,6 @@ router.get('/', FisherFolkController.getAll);
 router.get('/:id', FisherFolkController.getById);
 router.put('/:id', FisherFolkController.update);
 router.delete('/:id', FisherFolkController.delete);
+router.post('/login', FisherFolkController.auth);
 
 export default router;

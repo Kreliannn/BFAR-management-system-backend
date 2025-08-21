@@ -1,3 +1,7 @@
+import { getBoatInterface } from "./boat.type";
+import { getGearInterface } from "./gear.type";
+
+
 export interface insertFisherfolkInterface {
   fullname: string;
   contact: string;
@@ -5,8 +9,9 @@ export interface insertFisherfolkInterface {
   gender : string;
   barangay: string;
   address: string;
-  boats : string[];
-  gears : string[];
+  password : string,
+  boats : getBoatInterface[];
+  gears : getGearInterface[];
 }
 
 
@@ -18,6 +23,7 @@ export interface getFisherfolkInterface {
   gender : string;
   barangay: string;
   address: string;
-  boats : string[];
-  gears : string[];
+  password : string,
+  boats : getBoatInterface[];
+  gears : getGearInterface[];
 }
