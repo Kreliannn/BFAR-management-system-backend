@@ -16,10 +16,25 @@ export class FisherFolk {
   }
 
   static async update(id: string, data: getFisherfolkInterface) {
-    return await FisherFolkDB.findByIdAndUpdate(id, data, { new: true });
+    return await FisherFolkDB.findByIdAndUpdate(id, { 
+       fullname : data.fullname,
+       email : data.email, 
+       contact : data.contact,
+       barangay : data.barangay,
+       address : data.address
+    }, 
+    { new: true });
   }
 
   static async delete(id: string) {
     return await FisherFolkDB.findByIdAndDelete(id);
+  }
+
+  static async insertGear(id: string, gearId: string) {
+    return await FisherFolkDB.findByIdAndUpdate(id,   { $push: { gears: gearId } }, { new: true });
+  }
+
+  static async insertBoat(id: string, boatId: string) {
+    return await FisherFolkDB.findByIdAndUpdate(id,   { $push: { boats: boatId } }, { new: true });
   }
 }

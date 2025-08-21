@@ -7,6 +7,7 @@ export interface insertGearInterface {
   expiryDate: Date;
   status: string;
   objectType: 'gear';
+  registerDate: string;
 }
 
 
@@ -18,4 +19,5 @@ export interface getGearInterface {
   expiryDate: Date;
   status: string;
   objectType: 'gear';
+  registerDate: string;
 }

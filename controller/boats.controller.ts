@@ -1,10 +1,12 @@
 import { Request, Response } from 'express';
 import { Boat } from '../services/boat.service';
+import { FisherFolk } from '../services/fisherFolk.service';
 
 export class BoatController {
   static async create(req: Request, res: Response) {
     try {
       const boat = await Boat.create(req.body);
+      await FisherFolk.insertBoat(boat.owner.toString() ,boat._id.toString())
       res.status(201).json(boat);
     } catch (error: any) {
       res.status(400).json({ message: error.message });

@@ -7,6 +7,7 @@ export interface insertBoatInterface {
   expiryDate: Date;
   status: string;
   objectType: 'boat';
+  registerDate: string;
 }
 
 
@@ -18,4 +19,5 @@ export interface getBoatInterface {
   expiryDate: Date;
   status: string;
   objectType: 'boat';
+  registerDate: string;
 }

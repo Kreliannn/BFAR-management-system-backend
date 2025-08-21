@@ -1,10 +1,12 @@
 import { Request, Response } from 'express';
 import { Gear } from '../services/gear.service';
+import { FisherFolk } from '../services/fisherFolk.service';
 
 export class GearController {
   static async create(req: Request, res: Response) {
     try {
       const gear = await Gear.create(req.body);
+      await FisherFolk.insertGear(gear.owner.toString() ,gear._id.toString())
       res.status(201).json(gear);
     } catch (error: any) {
       res.status(400).json({ message: error.message });
