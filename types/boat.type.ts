@@ -4,7 +4,7 @@ export interface insertBoatInterface {
   owner: string;   
   name: string;
   type: string;
-  expiryDate: Date;
+  expiryDate: String;
   status: string;
   objectType: 'boat';
   registerDate: string;
@@ -16,7 +16,7 @@ export interface getBoatInterface {
   owner: getFisherfolkInterface;   
   name: string;
   type: string;
-  expiryDate: Date;
+  expiryDate: String;
   status: string;
   objectType: 'boat';
   registerDate: string;

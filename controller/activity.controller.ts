@@ -46,4 +46,14 @@ export class ActivityController {
       res.status(400).json({ message: error.message });
     }
   }
+
+
+   static async getManyByUsetId(req: Request, res: Response) {
+    try {
+      const activity = await Activity.getManyByUserId(req.params.id);
+      res.send(activity);
+    } catch (error: any) {
+      res.status(400).json({ message: error.message });
+    }
+  }
 }

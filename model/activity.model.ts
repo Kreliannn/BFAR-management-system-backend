@@ -2,12 +2,12 @@ import mongoose, { Schema } from 'mongoose';
 
 
 const ActivitySchema = new Schema({
-  fisherfolk: { type: mongoose.Schema.Types.ObjectId, ref: 'Fisherfolk', required: true },
+  fisherfolk: { type: mongoose.Schema.Types.ObjectId, ref: 'FisherFolk', required: true },
   boat: { type: mongoose.Schema.Types.ObjectId, ref: 'boats', required: true },
-  activityType: { type: String, enum: ['Fishing', 'Selling', 'Maintenance'], required: true },
+  activityType: { type: String, enum: ['Fishing', 'Transport', 'Maintenance'], required: true },
   location: { type: String },
-  date: { type: Date, required: true },
-  time : { type: String, required: true },
+  date: { type: String, required: true },
+  time : { type: String, required: true },  
 });
 
 

@@ -6,7 +6,7 @@ export interface insertActivityInterface {
   boat: string;         
   activityType: string;
   location?: string;
-  date: Date;
+  date: String;
   time: string;
 }
 
@@ -17,6 +17,6 @@ export interface getActivityInterface {
   boat: getBoatInterface;         
   activityType: string;
   location : string;
-  date: Date;
+  date: String;
   time: string;
 }

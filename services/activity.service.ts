@@ -10,14 +10,21 @@ export class Activity {
   static async getAll() {
     return await ActivityDB.find()
       .populate('fisherfolk')
-      .populate('boats')
+      .populate('boat')
       .exec();
   }
 
   static async getById(id: string) {
     return await ActivityDB.findById(id)
       .populate('fisherfolk')
-      .populate('boats')
+      .populate('boat')
+      .exec();
+  }
+
+  static async getManyByUserId(id: string) {
+    return await ActivityDB.find({fisherfolk : id})
+      .populate('fisherfolk')
+      .populate('boat')
       .exec();
   }
 

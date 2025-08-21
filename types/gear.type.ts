@@ -4,7 +4,7 @@ export interface insertGearInterface {
   owner: string;   
   name: string;
   type: string;
-  expiryDate: Date;
+  expiryDate: String;
   status: string;
   objectType: 'gear';
   registerDate: string;
@@ -16,7 +16,7 @@ export interface getGearInterface {
   owner: getFisherfolkInterface;   
   name: string;
   type: string;
-  expiryDate: Date;
+  expiryDate: String;
   status: string;
   objectType: 'gear';
   registerDate: string;

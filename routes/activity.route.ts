@@ -8,5 +8,6 @@ router.get('/', ActivityController.getAll);
 router.get('/:id', ActivityController.getById);
 router.put('/:id', ActivityController.update);
 router.delete('/:id', ActivityController.delete);
+router.get('/fisherFolk/:id', ActivityController.getManyByUsetId);
 
 export default router;
