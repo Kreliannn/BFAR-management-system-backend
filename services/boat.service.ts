@@ -22,4 +22,15 @@ export class Boat {
   static async delete(id: string) {
     return await BoatDB.findByIdAndDelete(id);
   }
+
+  static async renewLicense(id: string) {
+    const boat = await BoatDB.findById(id)
+    if(!boat) return
+    const today = new Date();
+    const threeYearsLater = new Date();
+    threeYearsLater.setFullYear(today.getFullYear() + 3)
+    boat.registerDate = today.toISOString().split("T")[0]
+    boat.expiryDate = threeYearsLater.toISOString().split("T")[0]
+    await boat.save()
+  }
 }

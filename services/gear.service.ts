@@ -22,4 +22,15 @@ export class Gear {
   static async delete(id: string) {
     return await GearDB.findByIdAndDelete(id);
   }
+
+   static async renewLicense(id: string) {
+      const gear = await GearDB.findById(id)
+      if(!gear) return
+      const today = new Date();
+      const threeYearsLater = new Date();
+      threeYearsLater.setFullYear(today.getFullYear() + 3)
+      gear.registerDate = today.toISOString().split("T")[0]
+      gear.expiryDate = threeYearsLater.toISOString().split("T")[0]
+      await gear.save()
+    }
 }

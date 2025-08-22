@@ -48,4 +48,15 @@ export class BoatController {
       res.status(400).json({ message: error.message });
     }
   }
+
+  static async renewLicense(req: Request, res: Response) {
+    try {
+      console.log("run")
+      const {id} = req.params
+      await Boat.renewLicense(id)
+      res.send({ message: 'license renewed' });
+    } catch (error: any) {
+      res.status(400).json({ message: error.message });
+    }
+  }
 }

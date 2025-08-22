@@ -48,4 +48,15 @@ export class GearController {
       res.status(400).json({ message: error.message });
     }
   }
+
+
+   static async renewLicense(req: Request, res: Response) {
+      try {
+        const {id} = req.params
+        await Gear.renewLicense(id)
+        res.send({ message: 'license renewed' });
+      } catch (error: any) {
+        res.status(400).json({ message: error.message });
+      }
+    }
 }

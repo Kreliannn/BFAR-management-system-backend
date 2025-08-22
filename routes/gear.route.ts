@@ -8,5 +8,6 @@ router.get('/', GearController.getAll);
 router.get('/:id', GearController.getById);
 router.put('/:id', GearController.update);
 router.delete('/:id', GearController.delete);
+router.put('/renew/:id', GearController.renewLicense);
 
 export default router;
