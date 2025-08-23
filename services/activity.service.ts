@@ -35,4 +35,28 @@ export class Activity {
   static async delete(id: string) {
     return await ActivityDB.findByIdAndDelete(id);
   }
+
+   static async getMonthlyActivities() {
+      const allActivities = await ActivityDB.find().lean();
+ 
+      const grouped = allActivities.reduce((acc: any, activity) => {
+        if (!acc[activity.date]) {
+          acc[activity.date] = { date: activity.date, activities: 0 };
+        }
+        acc[activity.date].activities += 1;
+        return acc;
+      }, {});
+
+      // convert back to array
+      const result = Object.values(grouped);
+
+      // sort by date (assuming YYYY-MM-DD format so string sort works)
+      result.sort((a: any, b: any) => a.date.localeCompare(b.date));
+
+      // keep only 30 items
+      const last30 = result.slice(-30);
+
+      return last30
+    }
+
 }

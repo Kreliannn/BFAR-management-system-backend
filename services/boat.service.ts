@@ -8,11 +8,11 @@ export class Boat {
   }
 
   static async getAll() {
-    return await BoatDB.find().populate('fisherFolk').exec();
+    return await BoatDB.find().populate('owner').exec();
   }
 
   static async getById(id: string) {
-    return await BoatDB.findById(id).populate('fisherFolk').exec();
+    return await BoatDB.findById(id).populate('owner').exec();
   }
 
   static async update(id: string, data: getBoatInterface) {

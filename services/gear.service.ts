@@ -8,11 +8,11 @@ export class Gear {
   }
 
   static async getAll() {
-    return await GearDB.find().populate('fisherFolk').exec();
+    return await GearDB.find().populate('owner').exec();
   }
 
   static async getById(id: string) {
-    return await GearDB.findById(id).populate('fisherFolk').exec();
+    return await GearDB.findById(id).populate('owner').exec();
   }
 
   static async update(id: string, data: getGearInterface) {

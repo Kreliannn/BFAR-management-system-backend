@@ -56,4 +56,13 @@ export class ActivityController {
       res.status(400).json({ message: error.message });
     }
   }
+
+  static async getLast30Days(req: Request, res: Response) {
+    try {
+      const activity = await Activity.getMonthlyActivities()
+      res.send(activity);
+    } catch (error: any) {
+      res.status(400).json({ message: error.message });
+    }
+  }
 }
