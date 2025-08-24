@@ -6,7 +6,7 @@ const gearScehema = new Schema({
     name: { type: String, required: true },
     type: { type: String, enum: ['net', 'hook', 'trap', 'other'], required: true },
     registerDate: { type: String, required: true },
-    expiryDate: { type: String },
+    expiryDate: { type: String,  required: true},
     status: { type: String, enum: ['Active', 'Expired'], default: 'Active' },
     objectType : { type: String,  default: 'gear' }
 });

@@ -7,6 +7,9 @@ const notificationSchema = new Schema({
     date : { type: String, required: true },
     time : { type: String, required: true },
     itemName : { type: String, required: true },
+    type : { type: String, required: true },
+    itemiD : { type: String, required: true },
+    expirationDate : { type: String, required: true },
 });
 
 export default mongoose.model('notification', notificationSchema)

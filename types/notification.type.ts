@@ -6,6 +6,9 @@ export interface notificationInterface {
     date : string,
     time : string,
     itemName : string,
+    itemiD : string,
+    type : string,
+    expirationDate : string
 }
 
 
@@ -16,4 +19,7 @@ export interface getNotificationInterface {
     date : string,
     time : string,
     itemName : string,
+    itemiD : string,
+    type : string,
+    expirationDate : string
 }
