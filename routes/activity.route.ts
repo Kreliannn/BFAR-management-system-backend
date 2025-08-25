@@ -3,6 +3,8 @@ import { ActivityController } from '../controller/activity.controller';
 
 const router = Router();
 
+
+router.get('/date/:date', ActivityController.getByDate);
 router.post('/', ActivityController.create);
 router.get('/', ActivityController.getAll);
 router.get('/last30Days', ActivityController.getLast30Days);

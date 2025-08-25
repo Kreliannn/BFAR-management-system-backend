@@ -14,6 +14,14 @@ export class Activity {
       .exec();
   }
 
+  static async getByDate(date : string) {
+    return await ActivityDB.find({date})
+      .populate('fisherfolk')
+      .populate('boat')
+      .exec();
+  }
+
+
   static async getById(id: string) {
     return await ActivityDB.findById(id)
       .populate('fisherfolk')
@@ -36,7 +44,7 @@ export class Activity {
     return await ActivityDB.findByIdAndDelete(id);
   }
 
-   static async getMonthlyActivities() {
+  static async getMonthlyActivities() {
       const allActivities = await ActivityDB.find().lean();
  
       const grouped = allActivities.reduce((acc: any, activity) => {
@@ -47,13 +55,11 @@ export class Activity {
         return acc;
       }, {});
 
-      // convert back to array
+     
       const result = Object.values(grouped);
 
-      // sort by date (assuming YYYY-MM-DD format so string sort works)
       result.sort((a: any, b: any) => a.date.localeCompare(b.date));
 
-      // keep only 30 items
       const last30 = result.slice(-30);
 
       return last30

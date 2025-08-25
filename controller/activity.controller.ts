@@ -20,6 +20,16 @@ export class ActivityController {
     }
   }
 
+  static async getByDate(req: Request, res: Response) {
+    try {
+      const {date} = req.params
+      const activities = await Activity.getByDate(date);
+      res.status(200).json(activities);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+
   static async getById(req: Request, res: Response) {
     try {
       const activity = await Activity.getById(req.params.id);
