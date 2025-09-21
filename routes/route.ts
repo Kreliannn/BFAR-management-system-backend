@@ -6,6 +6,7 @@ import gearRoute from "./gear.route"
 import systemRoute from "./system.routes"
 import notificationRoute from "./notification.route"
 import reportRoute from "./report.route"
+import accountRoute from "./account.route"
 
 const routes = Router()
 
@@ -16,5 +17,6 @@ routes.use('/gear', gearRoute)
 routes.use('/system', systemRoute)
 routes.use('/notification', notificationRoute)
 routes.use('/report', reportRoute)
+routes.use('/account', accountRoute)
 
 export default routes
