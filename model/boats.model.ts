@@ -4,6 +4,10 @@ import mongoose, { Schema } from 'mongoose';
 const boatScehema = new Schema({
     owner : { type: mongoose.Schema.Types.ObjectId, ref: 'FisherFolk', required: true },
     name: { type: String, required: true },
+
+    serialNumber : { type: String, required: true },
+    dateAcquired : { type: String, required: true },
+    
     type: { type: String, enum: ['motorized', 'non-motorized'], required: true },
     registerDate: { type: String, required: true },
     expiryDate: { type: String, required: true },

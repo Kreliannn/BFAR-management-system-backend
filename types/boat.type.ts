@@ -4,10 +4,12 @@ export interface insertBoatInterface {
   owner: string;   
   name: string;
   type: string;
-  expiryDate: String;
+  expiryDate: string;
   status: string;
-  objectType: 'boat';
+  objectType: string;
   registerDate: string;
+  serialNumber : string;
+  dateAcquired : string;  
 }
 
 
@@ -16,8 +18,10 @@ export interface getBoatInterface {
   owner: getFisherfolkInterface;   
   name: string;
   type: string;
-  expiryDate: String;
+  expiryDate: string;
   status: string;
-  objectType: 'boat';
+  objectType: string;
   registerDate: string;
+  serialNumber : string;
+  dateAcquired : string;  
 }
