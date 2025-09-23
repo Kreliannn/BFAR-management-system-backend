@@ -3,6 +3,9 @@ import mongoose, { Schema } from 'mongoose';
 
 const FisherFolkScehema = new Schema({
     fullname: { type: String, required: true },
+    civilStatus: { type: String, required: true },
+    profile: { type: String, required: true },
+    personToNotify: { type: String, required: true },
     contact: { type: String, required: true },
     gender: { type: String, required: true },
     email: { type: String, required: true },

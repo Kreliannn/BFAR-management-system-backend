@@ -12,6 +12,9 @@ export interface insertFisherfolkInterface {
   password : string,
   boats : getBoatInterface[];
   gears : getGearInterface[];
+  civilStatus: string,
+  personToNotify: string,
+  profile : string
 }
 
 
@@ -26,4 +29,7 @@ export interface getFisherfolkInterface {
   password : string,
   boats : getBoatInterface[];
   gears : getGearInterface[];
+  civilStatus: string,
+  personToNotify: string,
+  profile : string
 }
