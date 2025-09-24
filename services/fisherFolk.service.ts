@@ -44,6 +44,10 @@ export class FisherFolk {
     return await FisherFolkDB.findByIdAndUpdate(id,   { $push: { boats: boatId } }, { new: true });
   }
 
+  static async updateProfile(id: string, profile: string) {
+    return await FisherFolkDB.findByIdAndUpdate(id, { profile }, { new: true });
+  }
+
   static async login(email : string, password : string) {
     return await FisherFolkDB.findOne({ email , password})
     .populate("gears")

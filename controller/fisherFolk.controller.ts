@@ -137,43 +137,28 @@ export class FisherFolkController {
       response.status(400).json({ message: error.message });
     }
   }
+
+  static async uploadProfile(request: Request, response: Response) {
+    try {
+       if (!request.file) {
+         response.status(400).json({ message: "No file uploaded" })
+         return
+      }
+
+      const {id} = request.body
+
+      const filename = request.file.filename  
+
+      const updatedAccount = await FisherFolk.updateProfile(id, filename)
+
+      response.send(updatedAccount)
+
+
+    } catch (error: any) {
+      response.status(400).json({ message: error.message });
+    }
+  }
+
+
+
 }
-
-
-/*
-
-
-      (fisherFolk?.boats as unknown as getBoatInterface[])?.forEach(async (boat) => {
-          if(await Notification.checkIfExist(boat._id, "warning", boat.expiryDate.toString())){
-            if(getRemainingDays(boat.expiryDate.toString()) <= 30 ){
-              await Notification.create({
-                fisherFolk : req.params.id,
-                message: "your license will be expired soon",
-                date : "blank",
-                time : "blank",
-                itemName : boat.name,
-                type : "warning",
-                itemiD : boat._id,
-                expirationDate : boat.expiryDate.toString(),
-            })
-          }
-
-          if(await Notification.checkIfExist(boat._id, "expired", boat.expiryDate.toString())){
-            if(checkIfExpired(boat.expiryDate.toString())){
-              await Notification.create({
-                  fisherFolk : req.params.id,
-                  message: "your license is expired",
-                  date : "blank",
-                  time : "blank",
-                  itemName : boat.name,
-                  type : "expired",
-                  itemiD : boat._id,
-                  expirationDate : boat.expiryDate.toString(),
-              })
-            }
-          }
-
-        }
-      }); 
-
-*/
