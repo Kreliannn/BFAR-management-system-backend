@@ -8,6 +8,8 @@ export interface insertActivityInterface {
   location?: string;
   date: String;
   time: string;
+  lat: number;
+  long: number;
 }
 
 
@@ -19,4 +21,6 @@ export interface getActivityInterface {
   location : string;
   date: String;
   time: string;
+  lat: number;
+  long: number;
 }

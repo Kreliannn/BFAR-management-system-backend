@@ -7,7 +7,9 @@ const ActivitySchema = new Schema({
   activityType: { type: String, enum: ['Fishing', 'Transport', 'Maintenance'], required: true },
   location: { type: String },
   date: { type: String, required: true },
-  time : { type: String, required: true },  
+  time : { type: String, required: true },
+  lat :   { type: Number, required: true },
+  long :   { type: Number, required: true },
 });
 
 
