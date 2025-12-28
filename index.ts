@@ -12,7 +12,7 @@ app.use(cors());
 app.use("/uploads", express.static("uploads"))
 app.use(routes)
 
-mongoose.connect("mongodb://localhost:27017/BFAR")
+mongoose.connect("mongodb://localhost:27017/BFARV2")
 
 app.get('/', async (request: Request, response: Response) => {
   response.send("working...........")
