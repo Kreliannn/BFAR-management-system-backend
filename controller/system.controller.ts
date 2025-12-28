@@ -3,6 +3,7 @@ import { Activity } from '../services/activity.service';
 import { FisherFolk } from '../services/fisherFolk.service';
 import { Boat } from '../services/boat.service';
 import { Gear } from '../services/gear.service';
+import { getGearChart, getBoatChart, getBarangayChart } from '../utils/functions';
 
 export class SystemController {
 
@@ -10,6 +11,8 @@ export class SystemController {
     const fisherfolks = await FisherFolk.getAll()
     const boats = await Boat.getAll()
     const gears = await Gear.getAll()
+
+    if(!gears) return
 
     fisherfolks.reverse()
     boats.reverse()
@@ -25,7 +28,13 @@ export class SystemController {
       gearCount : gears.length,
       recentFisherFolk,
       recentBoat,
-      recentGear
+      recentGear,
+      //@ts-ignore
+      gearChart : getGearChart(gears),
+      //@ts-ignore
+      boatChart : getBoatChart(boats),
+      //@ts-ignore
+      barangayChart : getBarangayChart(fisherfolks)
     })
 
   }

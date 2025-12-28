@@ -14,6 +14,8 @@ const FisherFolkScehema = new Schema({
     address :{ type: String, required: true },
     boats : [{ type: mongoose.Schema.Types.ObjectId, ref: 'boats', required: true }],
     gears : [{ type: mongoose.Schema.Types.ObjectId, ref: 'gears', required: true }],
+    lat: { type: String, required: true },
+    long: { type: String, required: true },
 });
 
 export default mongoose.model('FisherFolk', FisherFolkScehema)
