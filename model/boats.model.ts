@@ -7,6 +7,8 @@ const boatScehema = new Schema({
 
     serialNumber : { type: String, required: true },
     dateAcquired : { type: String, required: true },
+
+    certificateOfNumber :  { type: String, required: true },
     
     type: { type: String, enum: ['motorized', 'non-motorized'], required: true },
     registerDate: { type: String, required: true },

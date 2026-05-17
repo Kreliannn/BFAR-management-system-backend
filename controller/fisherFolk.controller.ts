@@ -138,6 +138,17 @@ export class FisherFolkController {
     }
   }
 
+
+   static async udpateDate(request: Request, response: Response) {
+    try {
+      const {id, date} = request.body
+      await FisherFolk.updateDate(id, date)
+      response.send("sucess")
+    } catch (error: any) {
+      response.status(400).json({ message: error.message });
+    }
+  }
+
   static async uploadProfile(request: Request, response: Response) {
     try {
        if (!request.file) {

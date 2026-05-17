@@ -14,7 +14,8 @@ export interface insertFisherfolkInterface {
   gears : getGearInterface[];
   civilStatus: string,  
   personToNotify: string,
-  profile : string
+  profile : string,
+  registeredDate : string
 }
 
 
@@ -33,5 +34,6 @@ export interface getFisherfolkInterface {
   personToNotify: string,
   profile : string,
   lat : string
-  long : string
+  long : string,
+  registeredDate : string
 }

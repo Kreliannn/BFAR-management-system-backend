@@ -48,6 +48,10 @@ export class FisherFolk {
     return await FisherFolkDB.findByIdAndUpdate(id, { profile }, { new: true });
   }
 
+  static async updateDate(id: string, date: string) {
+    return await FisherFolkDB.findByIdAndUpdate(id, { registeredDate : date }, { new: true });
+  }
+
   static async login(email : string, password : string) {
     return await FisherFolkDB.findOne({ email , password})
     .populate("gears")

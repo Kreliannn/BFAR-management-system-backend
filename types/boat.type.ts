@@ -10,6 +10,7 @@ export interface insertBoatInterface {
   registerDate: string;
   serialNumber : string;
   dateAcquired : string;  
+     certificateOfNumber : string
 }
 
 
@@ -24,4 +25,5 @@ export interface getBoatInterface {
   registerDate: string;
   serialNumber : string;
   dateAcquired : string;  
+  certificateOfNumber : string
 }

@@ -11,5 +11,6 @@ router.put('/:id', FisherFolkController.update);
 router.delete('/:id', FisherFolkController.delete);
 router.post('/login', FisherFolkController.auth);
 router.post('/uploadProfile', upload.single('profile') ,FisherFolkController.uploadProfile);
+router.post('/updateDate', FisherFolkController.udpateDate);
 
 export default router;

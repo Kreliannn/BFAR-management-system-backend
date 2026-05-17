@@ -16,6 +16,7 @@ const FisherFolkScehema = new Schema({
     gears : [{ type: mongoose.Schema.Types.ObjectId, ref: 'gears', required: true }],
     lat: { type: String, required: true },
     long: { type: String, required: true },
+    registeredDate : { type: String, required: true },
 });
 
 export default mongoose.model('FisherFolk', FisherFolkScehema)
